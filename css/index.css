@@ -728,5 +728,5 @@ footer {
     }
 }
 nav, section, footer {
-    overflow-x: hidden;
+    overflow: hidden;
 }

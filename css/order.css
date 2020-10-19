@@ -394,5 +394,5 @@ h1, input, button {
     }
 }
 nav, section {
-    overflow-x: hidden;
+    overflow: hidden;
 }
