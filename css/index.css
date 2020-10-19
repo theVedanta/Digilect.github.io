@@ -27,7 +27,7 @@ a {
 }
 body {
     width: 100vw;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 /* Button ----------------------------------------------------------------------------- */
 .btn {
@@ -88,6 +88,7 @@ nav {
     width: 100vw;
     transition: all 1.2s;
     z-index: 10;
+    overflow: hidden;
 }
 .sideActiveN {
     background: #fbfbfb;
@@ -418,6 +419,7 @@ footer {
     align-items: center;
     color: #fbfbfb;
     font-size: 20px;
+    overflow: hidden;
 }
 /* Medias ------------------------------------------------------------------------ */
 @media (max-height: 800px) {
@@ -731,6 +733,6 @@ footer {
         font-size: 10px;
     }
 }
-nav, section, footer {
+section {
     overflow: hidden;
 }
