@@ -27,7 +27,7 @@ a {
 }
 body {
     width: 100vw;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 /* Button ----------------------------------------------------------------------------- */
 .btn {
@@ -731,6 +731,6 @@ footer {
         font-size: 10px;
     }
 }
-nav, section, div, footer {
+nav, section, footer {
     overflow: hidden;
 }
