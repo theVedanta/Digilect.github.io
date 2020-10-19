@@ -1,0 +1,398 @@
+/* Standard -------------------------------------------------------- */
+@font-face {
+    font-family: sf;
+    src: url(../fonts/SF\ Pro\ Display.ttf);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: sf;
+    color: #2f2f36;
+}
+body {
+    background: #fbfbfb;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background: #2f2f36;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.212);
+    padding: 20px 60px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+input {
+    border: none;
+    width: 40%;
+    padding: 14px 24px;
+    border: 1px #2f2f36 solid;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 1.8vh 0;
+}
+input::placeholder {
+    color: rgba(47, 47, 54, 0.765);
+}
+::selection {
+    background: #ee5353;
+    color: #fff;
+}
+/* Button ----------------------------------------------------------------------------- */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background: #2f2f36;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.212);
+    padding: 20px 60px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.4s;
+    position: relative;
+}
+.btn:hover {
+    transform: translateY(-10px);
+}
+.btnShadow {
+    width: 100%;
+    height: 100%;
+    background: rgba(47, 47, 54, 0.592);
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.2s;
+}
+.btn:hover .btnShadow {
+    transform: translateY(6px);
+}
+.btnShadow2 {
+    width: 100%;
+    height: 100%;
+    background: rgba(47, 47, 54, 0.392);
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+.btn:hover .btnShadow2 {
+    transform: translateY(12px);
+}
+.btn:active,
+.btn:active .btnShadow,
+.btn:active .btnShadow2{
+    transform: none;
+}
+/* Nav --------------------------------------------------------------------------- */
+nav {
+    padding: 3vh 4vw;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    transition: all 1.2s;
+    z-index: 10;
+}
+.navBrand {
+    flex: 1;
+}
+nav h3 {
+    font-size: 35px;
+    letter-spacing: 1.4px;
+    font-weight: 1000;
+}
+/* Hero ------------------------------------------------------------------------------ */
+.hero {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background: url(../assets/phone.svg);
+    background-position: 84% center;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+    transition: all 0.4s 1s;
+}
+.heroLeft {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.heroContent {
+    width: 80%;
+    height: 56%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.hero h1 {
+    font-size: 65px;
+    letter-spacing: 1.4px;
+    padding-bottom: 4vh;
+    font-weight: bolder;
+}
+button {
+    border: none;
+    margin-top: 4vh;
+    cursor: pointer;
+}
+h1, input, button {
+    transition: all 0.4s var(--d);
+}
+.goAway {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+/* Overlay ---------------------------------------------------------------------- */
+.over {
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s 1.3s;
+    pointer-events: none;
+}
+.over img,
+.over h1,
+.over a {
+    margin: 2vh;
+}
+.over img {
+    width: 0;
+    opacity: 0.4;
+}
+.over h1 {
+    font-size: 65px;
+}
+.tick {
+    animation-name: tick;
+    animation-duration: 1.4s;
+    animation-delay: 1.6s;
+    animation-fill-mode: forwards;
+}
+@keyframes tick {
+    0% {
+        width: 2%;
+        opacity: 0.4;
+    }
+    20% {
+        width: 4%;
+        opacity: 0.6;
+    }
+    40% {
+        width: 2%;
+        opacity: 0.4;
+    }
+    60% {
+        width: 4%;
+        opacity: 0.6;
+    }
+    80% {
+        width: 2%;
+        opacity: 0.4;
+    }
+    100% {
+        width: 7%;
+        opacity: 1;
+    }
+}
+.over h1,
+.over a {
+    opacity: 0;
+}
+.kuchBhi {
+    animation-name: oth;
+    animation-duration: 0.6s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes oth {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+/* Medias ---------------------------------------------------------------------- */
+@media (max-width: 1300px) {
+    .hero {
+        background-position: center 94%;
+        background-size: 56%;
+        background-repeat: no-repeat;
+    }
+    .heroLeft {
+        align-items: flex-start;
+    }
+    .heroContent {
+        align-items: center;
+        height: 80vh;
+        margin-top: 16vh;
+    }
+    .hero h1 {
+        text-align: center;
+    }
+    input {
+        width: 70%;
+    }
+    .over h1 {
+        font-size: 58px;
+    }
+}
+@media (max-width: 800px) {
+    .hero {
+        background-size: 64%;
+    }
+    .hero h1 {
+        font-size: 50px;
+    }
+    .over h1 {
+        font-size: 50px;
+    }
+    @keyframes tick {
+        0% {
+            width: 6%;
+            opacity: 0.4;
+        }
+        20% {
+            width: 8%;
+            opacity: 0.6;
+        }
+        40% {
+            width: 6%;
+            opacity: 0.4;
+        }
+        60% {
+            width: 8%;
+            opacity: 0.6;
+        }
+        80% {
+            width: 6%;
+            opacity: 0.4;
+        }
+        100% {
+            width: 10%;
+            opacity: 1;
+        }
+    }
+}
+@media (max-width: 600px) {
+    nav {
+        padding: 2vh 6vw;
+    }
+    nav h3 {
+        font-size: 28px;
+    }
+    .heroContent {
+        height: 90vh;
+    }
+    .hero h1 {
+        font-size: 36px;
+    }
+    input {
+        width: 94%;
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    .btn {
+        padding: 14px 46px;
+        font-size: 12px;
+    }
+    .over h1 {
+        font-size: 26px;
+    }
+    @keyframes tick {
+        0% {
+            width: 12%;
+            opacity: 0.4;
+        }
+        20% {
+            width: 14%;
+            opacity: 0.6;
+        }
+        40% {
+            width: 12%;
+            opacity: 0.4;
+        }
+        60% {
+            width: 14%;
+            opacity: 0.6;
+        }
+        80% {
+            width: 12%;
+            opacity: 0.4;
+        }
+        100% {
+            width: 17%;
+            opacity: 1;
+        }
+    }
+}
+@media (max-width: 300px) {
+    nav {
+        padding: 1vh 4vw;
+    }
+    nav h3 {
+        font-size: 22px;
+    }
+    .heroContent {
+        height: 90vh;
+    }
+    .hero h1 {
+        font-size: 28px;
+    }
+    input {
+        width: 98%;
+        font-size: 12px;
+        padding: 10px 16px;
+    }
+    .btn {
+        padding: 12px 36px;
+        font-size: 10px;
+    }
+    .over h1 {
+        font-size: 20px;
+    }
+    @keyframes tick {
+        0% {
+            width: 16%;
+            opacity: 0.4;
+        }
+        20% {
+            width: 18%;
+            opacity: 0.6;
+        }
+        40% {
+            width: 16%;
+            opacity: 0.4;
+        }
+        60% {
+            width: 18%;
+            opacity: 0.6;
+        }
+        80% {
+            width: 16%;
+            opacity: 0.4;
+        }
+        100% {
+            width: 20%;
+            opacity: 1;
+        }
+    }
+}
+nav, section {
+    overflow-x: hidden;
+}

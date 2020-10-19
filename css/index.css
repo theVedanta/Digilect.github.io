@@ -1,0 +1,732 @@
+/* Standard -------------------------------------------------------- */
+@font-face {
+    font-family: sf;
+    src: url(../fonts/SF\ Pro\ Display.ttf);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: sf;
+    color: #2f2f36;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background: #2f2f36;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.212);
+    padding: 20px 60px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+::selection {
+    background: #ee5353;
+    color: #fff;
+}
+/* Button ----------------------------------------------------------------------------- */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background: #2f2f36;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.212);
+    padding: 20px 60px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.4s;
+    position: relative;
+}
+.btn:hover {
+    transform: translateY(-10px);
+}
+.btnShadow {
+    width: 100%;
+    height: 100%;
+    background: rgba(47, 47, 54, 0.592);
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.2s;
+}
+.btn:hover .btnShadow {
+    transform: translateY(6px);
+}
+.btnShadow2 {
+    width: 100%;
+    height: 100%;
+    background: rgba(47, 47, 54, 0.392);
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+.btn:hover .btnShadow2 {
+    transform: translateY(12px);
+}
+.btn:active,
+.btn:active .btnShadow,
+.btn:active .btnShadow2{
+    transform: none;
+}
+/* Nav and Side and Ham ------------------------------------------------------------------------ */
+nav {
+    padding: 3vh 4vw;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    transition: all 1.2s;
+    z-index: 10;
+}
+.sideActiveN {
+    background: #fbfbfb;
+}
+.navBrand {
+    flex: 1;
+}
+nav h3 {
+    font-size: 35px;
+    letter-spacing: 1.4px;
+    font-weight: 1000;
+}
+.navLinks {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav a {
+    background: none;
+    padding: 0;
+    border-radius: none;
+    box-shadow: none;
+    color: #2f2f36;
+    font-size: 24px;
+    padding: 0 1.6vw;
+    position: relative;
+}
+nav a:before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    border-radius: 50px;
+    background: #2f2f36;
+    transition: all 0.4s;
+}
+.active::before {
+    width: 32%;
+}
+nav a:hover:before {
+    width: 32%;
+}
+.hamCont {
+    cursor: pointer;
+    padding: 2vh 2vw;
+    display: none;
+}
+.ham {
+    width: 30px;
+    height: 3px;
+    background: #2f2f36;
+    position: relative;
+    border-radius: 50px;
+    transition: all 0.6s;
+}
+.ham::before,
+.ham::after {
+    content: '';
+    position: absolute;
+    border-radius: 50px;
+    width: 30px;
+    left: 0;
+    height: 3px;
+    background: #2f2f36;
+    transition: all 0.6s;
+}
+.ham::before {
+    bottom: 8px;
+}
+.ham::after {
+    top: 8px;
+}
+.hamActive {
+    background: transparent;
+}
+.hamActive::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+.hamActive::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+.dark {
+    background: rgba(47, 47, 54, 0.9);
+}
+.dark h3, .dark a {
+    color: #fff;
+}
+.dark a::before {
+    background: #fbfbfb;
+}
+.dark .ham,
+.dark .ham::before,
+.dark .ham::after {
+    background: #fbfbfb;
+}
+.dark .hamActive {
+    background: transparent;
+}
+.side {
+    width: 100vw;
+    height: 0;
+    position: fixed;
+    top: 0;
+    pointer-events: none;
+    left: 0;
+    z-index: 8;
+    background: #2f2f36;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1.8s;
+}
+.sideActive {
+    height: 100vh;
+    pointer-events: all;
+}
+.sideLinks {
+    display: flex;
+    flex-direction: column;
+}
+.side a {
+    background: none;
+    padding: 0;
+    border-radius: none;
+    box-shadow: none;
+    color: #fff;
+    font-size: 30px;
+    margin: 2vh 0;
+    padding: 0 1.6vw;
+    position: relative;
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.4s var(--d);
+}
+.sideActive a {
+    opacity: 1;
+    transform: translateX(0);
+}
+.side a:before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    border-radius: 50px;
+    background: #fff;
+    transition: all 0.4s;
+}
+.side a:hover:before {
+    width: 32%;
+}
+/* Hero ------------------------------------------------------------------------------ */
+.hero {
+    width: 100vw;
+    height: 100vh;
+    background: #fbfbfb;
+    display: flex;
+    background: url(../assets/phone.svg);
+    background-position: center right;
+    background-size: 46%;
+    background-repeat: no-repeat;
+}
+.heroLeft {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.heroContent {
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.hero h1 {
+    font-size: 65px;
+    letter-spacing: 1.4px;
+    padding-bottom: 4vh;
+    font-weight: 900;
+}
+.hero p {
+    font-size: 20px;
+    line-height: 45px;
+    width: 100%;
+    padding-bottom: 6vh;
+}
+/* Prob ------------------------------------------------------------------------------------ */
+.prob {
+    width: 100vw;
+    height: 90vh;
+    background: #2f2f36;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 4vw;
+}
+.pBox {
+    width: 36%;
+    height: 44%;
+    border-radius: 13px;
+    background: #fbfbfb;
+}
+.prob h3 {
+    text-align: center;
+    padding: 6vh 0;
+    font-size: 40px;
+}
+.prob p {
+    margin-top: 0;
+    padding-top: 0;
+    color: #2f2f36;
+    text-align: center;
+    line-height: 41px;
+    padding: 0 3vw;
+    transform: translateY(-2vh);
+}
+/* Ballad -------------------------------------------------------------------------------- */
+.bal {
+    width: 100vw;
+    height: 90vh;
+    background: #fbfbfb;
+    padding: 16vh 12vw;
+    display: flex;
+    background: url(../assets/ballod.svg);
+    background-position: 82% center;
+    background-size: 20%;
+    background-repeat: no-repeat;
+}
+.balCont {
+    flex: 1;
+    height: 100%;
+}
+.bal h1 {
+    font-size: 56px;
+    letter-spacing: 1.4px;
+    padding-bottom: 4vh;
+    font-weight: 900;
+}
+.bal p {
+    font-size: 20px;
+    line-height: 45px;
+}
+/* Verif ---------------------------------------------------------------------------------------- */
+.ver {
+    height: 100vh;
+    width: 100vw;
+    background: #2f2f36;
+}
+.subver {
+    height: 100vh;
+    width: 100vw;
+    background: url(../assets/Verification.svg);
+    background-position: 16% center;
+    background-size: 26%;
+    background-repeat: no-repeat;
+    padding: 20vh 18vw;
+    padding-right: 6vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.verCont {
+    width: 58%;
+    height: 60%;
+}
+.ver h1 {
+    font-size: 56px;
+    letter-spacing: 1.4px;
+    padding-bottom: 4vh;
+    font-weight: 900;
+    color: #fbfbfb;
+}
+.ver p {
+    font-size: 20px;
+    line-height: 45px;
+    color: #fbfbfb;
+}
+/* Bhai ------------------------------------------------------------------------------------- */
+.bh {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 14vh 13vw;
+}
+.bhBox {
+    width: 40%;
+    height: 100%;
+    border-radius: 14px;
+    border: 3px solid #2f2f36;
+    padding: 4vh 2vw;
+    text-align: center;
+}
+.bhBox img {
+    width: 100%;
+    height: 46%;
+    margin-bottom: 6vh;
+}
+.bh h1 {
+    font-size: 50px;
+    letter-spacing: 1.4px;
+    padding-bottom: 4vh;
+    font-weight: 900;
+}
+.bh p {
+    font-size: 20px;
+    line-height: 45px;
+}
+/* footer ---------------------------------------------------------------------------------------- */
+footer {
+    width: 100vw;
+    height: 20vh;
+    background: #2f2f36;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fbfbfb;
+    font-size: 20px;
+}
+/* Medias ------------------------------------------------------------------------ */
+@media (max-height: 800px) {
+    .hero {
+        background-size: 30%;
+    }
+    .hero h1 {
+        font-size: 45px;
+    }
+    .hero p {
+        line-height: 34px;
+    }
+    .prob h3 {
+        font-size: 30px;
+        padding: 3.6vh 0;
+    }
+    .prob p {
+        line-height: 34px;
+        font-size: 16px;
+    }
+    .bal h1 {
+        font-size: 34px;
+    }
+    .bal p {
+        font-size: 16px;
+        line-height: 34px;
+    }
+    .ver h1 {
+        font-size: 34px;
+    }
+    .ver p {
+        font-size: 18px;
+        line-height: 34px;
+    }
+    .bh {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .bhBox {
+        width: 44%;
+        height: 100%;
+    }
+    .bhBox img {
+        width: 100%;
+        height: 46%;
+        margin-bottom: 6vh;
+    }
+    .bh h1 {
+        font-size: 40px;
+        padding-bottom: 2vh;
+        font-weight: 900;
+    }
+    .bh p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+}
+@media (max-width: 1300px) {
+    .hero {
+        background-position: center 94%;
+        background-size: 56%;
+        background-repeat: no-repeat;
+    }
+    .heroLeft {
+        align-items: flex-start;
+    }
+    .heroContent {
+        align-items: center;
+        height: 80vh;
+    }
+    .hero h1 {
+        text-align: center;
+    }
+    .hero p {
+        text-align: center;
+    }
+    .prob {
+        height: 90vh;
+        flex-direction: column;
+    }
+    .pBox {
+        width: 60%;
+        height: 38%;
+    }
+    .bal {
+        background-size: 28%;
+    }
+    .bh {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .bhBox {
+        width: 80%;
+        height: 60%;
+        margin-bottom: 3vh;
+    }
+    .bhBox img {
+        margin-bottom: 3vh;
+    }
+    .bhBox h1 {
+        padding-bottom: 1.6vh;
+    }
+}
+@media (max-width: 800px) {
+    .hero {
+        background-size: 64%;
+    }
+    .hero h1 {
+        font-size: 50px;
+    }
+    .prob h3 {
+        font-size: 36px;
+    }
+    .prob p {
+        line-height: 32px;
+    }
+    .bal {
+        padding: 9vh 12vw;
+        background-size: 34%;
+    }
+    .bal h1 {
+        font-size: 46px;
+    }
+    .bal p {
+        line-height: 36px;
+    }
+    .subver {
+        padding: 14vh 18vw;
+    }
+    .ver h1 {
+        font-size: 46px;
+    }
+    .ver p {
+        line-height: 36px;
+        font-size: 18px;
+    }
+    .bh p {
+        line-height: 30px;
+        padding: 0 2vw;
+        padding-bottom: 3vh;
+        font-size: 16px;
+    }
+}
+@media (max-width: 600px) {
+    .btn {
+        padding: 16px 50px;
+        font-size: 12px;
+    }
+    nav {
+        padding: 2vh 6vw;
+    }
+    nav h3 {
+        font-size: 28px;
+    }
+    .navLinks a {
+        display: none;
+    }
+    .hamCont {
+        display: inline-block;
+    }
+    .heroContent {
+        height: 90vh;
+    }
+    .hero h1 {
+        font-size: 32px;
+    }
+    .hero p {
+        line-height: 34px;
+        font-size: 16px;
+    }
+    .pBox {
+        width: 87%;
+        height: 40%;
+    }
+    .prob h3 {
+        font-size: 32px;
+        padding: 4.6vh;
+    }
+    .prob p {
+        font-size: 12px;
+        padding: 0 5vw;
+        line-height: 28px;
+    }
+    .bal {
+        height: 100vh;
+        padding: 1vh 10vw;
+        background-size: 46%;
+        background-position: center 89%;
+    }
+    .balCont {
+        height: 70%;
+        text-align: center;
+    }
+    .balCont:nth-child(2) {
+        display: none;
+    }
+    .bal h1 {
+        font-size: 28px;
+    }
+    .bal p {
+        line-height: 30px;
+        font-size: 16px;
+    }
+    .subver {
+        padding: 6vh 10vw;
+        background-size: 30%;
+        background-position: center 10%;
+    }
+    .verCont {
+        width: 100%;
+        height: 8%;
+        text-align: center;
+    }
+    .ver h1 {
+        font-size: 28px;
+    }
+    .ver p {
+        line-height: 30px;
+        font-size: 16px;
+    }
+    .bhBox {
+        width: 96%;
+    }
+    .bh h1 {
+        font-size: 20px;
+    }
+    .bh p {
+        line-height: 20px;
+        font-size: 11px;
+    }
+    footer {
+        font-size: 12px;
+    }
+}
+@media (max-width: 300px) {
+    .btn {
+        padding: 14px 40px;
+        font-size: 12px;
+    }
+    nav {
+        padding: 1vh 4vw;
+    }
+    nav h3 {
+        font-size: 28px;
+    }
+    .side a {
+        font-size: 24px;
+    }
+    .heroContent {
+        height: 90vh;
+    }
+    .hero h1 {
+        font-size: 26px;
+    }
+    .hero p {
+        line-height: 26px;
+        font-size: 14px;
+    }
+    .pBox {
+        width: 87%;
+        height: 40%;
+    }
+    .prob h3 {
+        font-size: 24px;
+        padding: 3.6vh;
+    }
+    .prob p {
+        font-size: 10px;
+        padding: 0 3vw;
+        line-height: 22px;
+    }
+    .bal h1 {
+        font-size: 24px;
+    }
+    .bal p {
+        line-height: 26px;
+        font-size: 13px;
+    }
+    .subver {
+        padding: 6vh 10vw;
+        background-size: 36%;
+        background-position: center 10%;
+    }
+    .verCont {
+        width: 100%;
+        height: 8%;
+        text-align: center;
+    }
+    .ver h1 {
+        font-size: 24px;
+    }
+    .ver p {
+        line-height: 26px;
+        font-size: 14px;
+    }
+    .bhBox {
+        width: 96%;
+        border: 2px solid #2f2f36;
+    }
+    .bh h1 {
+        font-size: 17px;
+    }
+    .bh p {
+        line-height: 18px;
+        font-size: 10px;
+    }
+    footer {
+        font-size: 10px;
+    }
+}
+nav, section, footer {
+    overflow-x: hidden;
+}
