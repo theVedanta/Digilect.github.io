@@ -727,6 +727,6 @@ footer {
         font-size: 10px;
     }
 }
-nav, section, footer {
+nav, section, div, footer {
     overflow: hidden;
 }
