@@ -25,6 +25,10 @@ a {
     background: #ee5353;
     color: #fff;
 }
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
 /* Button ----------------------------------------------------------------------------- */
 .btn {
     display: inline-block;
